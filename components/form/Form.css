@@ -1,0 +1,75 @@
+form {
+  margin: 60px 0 50px 0;
+}
+form h3 {
+  font-size: 24px;
+  color: #3d3d3d;
+}
+.form-content {
+  margin-top: 80px;
+}
+.form-content input {
+  outline: none;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 8px 10px;
+  transition: 0.3s;
+}
+.form-content input:focus {
+  border-color: blue;
+}
+.form-content input::placeholder {
+  opacity: 0.6;
+}
+.form-content .certificate img,
+.form-content .serial img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(65%);
+  width: 500px;
+  height: 250px;
+  display: none;
+  transition: 0.3s;
+  z-index: 7;
+}
+.form-content .certificate:hover img,
+.form-content .serial:hover img {
+  display: block;
+}
+@media (max-width: 768px) {
+  .form-content .certificate img,
+  .form-content .serial img {
+    top: 100%;
+    transform: translateX(0);
+  }
+}
+
+.cerror-message,
+.serror-message,
+.scerror-message {
+  color: #f56c6c;
+  font-size: 12px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+button#submit {
+  padding: 6px 26px;
+  border-radius: 3px;
+}
+button#submit:hover {
+  background-color: #6e8cdb;
+  border-color: #6e8cdb;
+}
+div#reset {
+  padding: 6px 26px;
+  border-radius: 3px;
+  border: 1px solid #eee;
+}
+div#reset:hover {
+  background-color: #c1cef0;
+  border-color: #c1cef0;
+  color: #305bcc;
+}

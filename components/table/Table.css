@@ -1,0 +1,41 @@
+.table {
+  padding: 0 60px;
+}
+.table table thead tr th {
+  color: #666;
+  font-weight: 500;
+  border-bottom-color: transparent;
+  padding: 12px;
+}
+.table table tbody tr td {
+  padding: 12px;
+}
+
+.table .top-data div {
+  width: 100%;
+  min-height: 40px;
+  height: auto;
+  border: 1px solid #e7e7e7;
+  line-height: 1.2;
+}
+.table .top-data p,
+.table .country p {
+  margin-bottom: 0;
+  padding: 10px;
+  color: #2c3e50;
+}
+.table .top-data p span,
+.table .country p span {
+  font-weight: 700;
+  word-break: break-word;
+  color: black;
+  margin-left: 10px;
+}
+.table .country {
+  border: 1px solid #e7e7e7;
+  border-top: transparent;
+}
+.table table {
+  border: 1px solid #e7e7e7;
+  border-top: transparent;
+}

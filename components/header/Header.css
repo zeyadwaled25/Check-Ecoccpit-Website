@@ -1,0 +1,32 @@
+header {
+  margin: 30px;
+}
+header .log-out button {
+  padding: 8px 22px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-decoration: none;
+  color: #666;
+}
+header .log-out button:hover {
+  background-color: rgba(0, 0, 255, 0.1);
+  color: rgba(0, 0, 255, 0.6);
+  border-color: rgba(0, 0, 255, 0.1);
+}
+header .row {
+  margin: 30px;
+  font-size: 16px;
+}
+header .row .certificate {
+  margin-bottom: 22px;
+}
+header .row .serial {
+  margin-bottom: 22px;
+  margin-left: 27px;
+}
+header .row p {
+  margin-bottom: 10px;
+}
+header .row p span {
+  color: #666;
+}

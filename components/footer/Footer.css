@@ -1,0 +1,9 @@
+.footer-copyright {
+  min-height: 55px;
+  line-height: 55px;
+  color: rgba(0, 0, 0, .45);
+}
+.footer-copyright a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, .45);
+}
