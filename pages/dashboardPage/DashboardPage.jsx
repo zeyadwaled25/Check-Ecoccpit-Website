@@ -537,17 +537,6 @@ function DashboardPage() {
                       {user.certificates && user.certificates.length > 0 ? (
                         <div className="certificates-summary">
                           <span>{user.certificates.length} certificate(s)</span>
-                          <div className="certificates-details">
-                            {user.certificates.map((cert, index) => (
-                              <div key={index} className="certificate-detail">
-                                <p><strong>Certificate {index + 1}:</strong></p>
-                                <p>HS Code: {cert.hsCode || "-"}</p>
-                                <p>Authorized By: {cert.authorizedBy || "-"}</p>
-                                <p>Weight: {cert.weight ? `${cert.weight} KGS` : "-"}</p>
-                                <p>Issue Date: {cert.issueDate ? formatDate(cert.issueDate) : "-"}</p>
-                              </div>
-                            ))}
-                          </div>
                         </div>
                       ) : "-"}
                     </td>
