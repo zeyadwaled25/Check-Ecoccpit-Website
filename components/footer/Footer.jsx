@@ -12,7 +12,7 @@ function Footer () {
         target="_blank"
         href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010202010900"
       >
-        <img src="./images/police.png" alt="police..." className="me-1" />
+        <img src="../../images/police.png" alt="police..." className="me-1" />
         京公网安备 11010202010900号
       </a>{" "}
       &nbsp;&nbsp;&nbsp;&nbsp; 中国国际贸易促进委员会 版权所有

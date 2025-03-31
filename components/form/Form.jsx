@@ -218,7 +218,7 @@ function Form() {
                       }}
                     />
                     {validCertificate === false && <div className="cerror-message">请输入 CO Certificate No (申请号)</div>}
-                    <img src="./images/certificate.png" alt="certificate" />
+                    <img src="../../images/certificate.png" alt="certificate" />
                   </div>
                 </div>
               </div>
@@ -246,7 +246,7 @@ function Form() {
                       }}
                     />
                     {validSerial === false && <div className="serror-message">请输入 CO Serial No (印刷号)</div>}
-                    <img src="./images/serial.png" alt="serial" />
+                    <img src="../../images/serial.png" alt="serial" />
                   </div>
                 </div>
               </div>
