@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Form.css";
 import ImageCertificate from "../../public/images/certificate.png";
 import ImageSerial from "../../public/images/serial.png";
+import { ErrorAlert, SuccessAlert } from "./AlertComponents";
 
 function Form() {
   const [certificate, setCertificate] = useState("");
@@ -13,6 +14,7 @@ function Form() {
   const [isValid, setIsValid] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   const [validCertificate, setValidCertificate] = useState(null);
   const [validSerial, setValidSerial] = useState(null);
@@ -143,6 +145,7 @@ function Form() {
     // Validate captcha
     if (securityCode.toLowerCase() !== captchaText.toLowerCase()) {
       setValidSecurityCode(false);
+      setError("原产地证书查验失败! 验证码校验失败!");
       drawCaptcha();
       setSecurityCode("");
       return;
@@ -164,6 +167,7 @@ function Form() {
       
       // Handle successful response
       if (response.status === 201 || response.status === 200) {
+        setSuccess(true);
         // Store the token in localStorage
         localStorage.setItem("access_token", response.data.access_token);
         
@@ -171,18 +175,20 @@ function Form() {
         localStorage.setItem("user_role", response.data.user.role);
         
         // Check user role and redirect accordingly
-        if (response.data.user.role === "admin") {
-          navigate("/dashboard");
-        } else {
-          // Navigate to CheckPage with user data
-          navigate("/check", { state: { userData: response.data.user } });
-        }
+        setTimeout(() => {
+          // Check user role and redirect accordingly
+          if (response.data.user.role === "admin") {
+            navigate("/dashboard");
+          } else {
+            // Navigate to CheckPage with user data
+            navigate("/check", { state: { userData: response.data.user } });
+          }
+        }, 1500);
       }
     } catch (err) {
       console.error("Login failed:", err);
       setError(
-        err.response?.data?.message || 
-        "Authentication failed. Please check your credentials."
+        "原产地证书查验失败! 验证码校验失败!" // Custom error message
       );
     } finally {
       setLoading(false);
@@ -193,6 +199,15 @@ function Form() {
     <section className="form">
       <form onSubmit={handleSubmit}>
         <div className="container">
+          {/* Error Alert */}
+          {error && (
+              <ErrorAlert onClose={() => setError(null)} />
+            )}
+            
+            {/* Success Alert */}
+            {success && (
+              <SuccessAlert onClose={() => setSuccess(false)} />
+            )}
           <h3 className="text-center">原产地证书查验</h3>
           <div className="form-content">
             <div className="row">
@@ -315,11 +330,7 @@ function Form() {
               </div>
             </div>
             
-            {error && (
-              <div className="alert alert-danger text-center my-3">{error}</div>
-            )}
-            
-            <div className="buttons mt-3 text-center d-flex justify-content-center align-items-center gap-3">
+            <div className="buttons mt-3 text-center d-flex justify-content-center align-items-center gap-5">
               <button 
                 type="submit" 
                 className="btn btn-primary" 

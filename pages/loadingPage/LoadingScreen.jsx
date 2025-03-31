@@ -1,36 +1,34 @@
-// LoadingScreen.js - A React component for the loading screen
 import { useState, useEffect } from "react";
 import "./LoadingScreen.css";
+import loadingImage from "../../public/images/in-dot.png";
 
 function LoadingScreen({ onLoadComplete }) {
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
-    // Simulate checking if all resources are loaded
     const timer = setTimeout(() => {
       setLoading(false);
       if (onLoadComplete) onLoadComplete();
-    }, 3000); // Show loading screen for at least 3 seconds
-    
-    // Listen for when the page is fully loaded
-    window.addEventListener('load', () => {
+    }, 3000);
+
+    window.addEventListener("load", () => {
       clearTimeout(timer);
       setLoading(false);
       if (onLoadComplete) onLoadComplete();
     });
-    
+
     return () => {
       clearTimeout(timer);
-      window.removeEventListener('load', () => {});
+      window.removeEventListener("load", () => {});
     };
   }, [onLoadComplete]);
-  
+
   if (!loading) return null;
-  
+
   return (
     <div className="loading-screen">
       <div className="loading-container">
-        <div className="loading-circle"></div>
+        <img src={loadingImage} alt="Loading" className="loading-circle" />
         <div className="loading-text">Loading</div>
       </div>
       <div className="loading-title">
