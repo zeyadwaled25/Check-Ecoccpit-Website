@@ -2,6 +2,8 @@ import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Form.css";
+import ImageCertificate from "../../public/images/certificate.png";
+import ImageSerial from "../../public/images/serial.png";
 
 function Form() {
   const [certificate, setCertificate] = useState("");
@@ -218,7 +220,7 @@ function Form() {
                       }}
                     />
                     {validCertificate === false && <div className="cerror-message">请输入 CO Certificate No (申请号)</div>}
-                    <img src="../../images/certificate.png" alt="certificate" />
+                    <img src={ImageCertificate} alt="certificate" />
                   </div>
                 </div>
               </div>
@@ -246,7 +248,7 @@ function Form() {
                       }}
                     />
                     {validSerial === false && <div className="serror-message">请输入 CO Serial No (印刷号)</div>}
-                    <img src="../../images/serial.png" alt="serial" />
+                    <img src={ImageSerial} alt="serial" />
                   </div>
                 </div>
               </div>
