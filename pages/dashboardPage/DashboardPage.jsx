@@ -69,7 +69,6 @@ function DashboardPage() {
         ...newUser,
         certificates: newUser.certificates.map(cert => ({
           ...cert,
-          weight: +cert.weight,
           issueDate: cert.issueDate 
             ? new Date(cert.issueDate).toISOString() 
             : new Date().toISOString()
@@ -127,7 +126,6 @@ function DashboardPage() {
         ...cleanUserData,
         certificates: cleanUserData.certificates.map(cert => ({
           ...cert,
-          weight: +cert.weight,
           issueDate: cert.issueDate
             ? new Date(cert.issueDate).toISOString()
             : undefined,
@@ -433,7 +431,7 @@ function DashboardPage() {
                 name={`certificates[${index}].weight`}
                 value={cert.weight || ""}
                 onChange={handleChange}
-                placeholder="e.g. 16790"
+                placeholder="e.g. 16790 KGS(千克)"
               />
             </div>
             

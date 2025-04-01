@@ -39,7 +39,7 @@ function Table({ userData }) {
                 <tr key={index}>
                   <td>{certificate?.hsCode || "-"}</td>
                   <td>{certificate?.authorizedBy || "-"}</td>
-                  <td>{certificate?.weight ? `${certificate.weight} KGS(千克)` : "-"}</td>
+                  <td>{certificate?.weight || "-"}</td>
                   <td>{certificate?.issueDate ? formatDate(certificate.issueDate) : "-"}</td>
                 </tr>
               ))
